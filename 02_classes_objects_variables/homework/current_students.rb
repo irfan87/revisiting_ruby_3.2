@@ -1,7 +1,7 @@
 # a program that check the current students that still studying in the college
 class Student
 	attr_reader :student_name, :student_age, :course_taken
-	attr_accessor :grad_year
+	attr_accessor :grad_year, :extended_year
 
 	# initialize student information
 	def initialize(student_name, student_age, course_taken, grad_year)
@@ -13,11 +13,9 @@ class Student
 
 	# calculate if student have extended year
 	def extended_year(extended_default=0)
-		(@grad_year.ceil + extended_default)
-	end
-
-	def extended_year=(extend_year)
-		@grad_year = extend_year
+		# if admin enter like 2.0 that represent 2 years and 3 months, ruby will return as a float
+		# I use round function, instead of ceil so that the floating nunber will convert as a decimal
+		(@grad_year + extended_default).round
 	end
 
 	def to_s
@@ -34,6 +32,6 @@ puts "Age: #{student.student_age}"
 puts "Course Name #{student.course_taken}"
 puts "Graduation Year: #{student.grad_year}"
 
-extended_year = student.extended_year()
+extended_year = student.extended_year(2.0)
 
 puts "Extend Year: #{extended_year}"
