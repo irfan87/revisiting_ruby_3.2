@@ -19,7 +19,7 @@ class Student
 	end
 
 	def to_s
-		"Student Name: #{@student_name}, Student Age: #{@student_age} Course Name: #{@course_name} Graduation Year: #{@grad_year}"
+		"Student Name: #{@student_name}, Student Age: #{@student_age} Course Name: #{@course_taken} Graduation Year: #{@grad_year}"
 	end
 end
 
@@ -29,7 +29,7 @@ student = Student.new("ali", 32.9, "IT", 2024)
 puts "Student Information"
 puts "Name: #{student.student_name}"
 puts "Age: #{student.student_age}"
-puts "Course Name #{student.course_taken}"
+puts "Course: #{student.course_taken}"
 puts "Graduation Year: #{student.grad_year}"
 
 extended_year = student.extended_year(2.0)
